@@ -1,1 +1,174 @@
-/*  */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 0 10px;
+    background-color: paleturquoise
+}
+
+.wrapper{
+    background: black;
+    border-radius: 20px;
+    padding: 35px 40px;
+}
+.wrapper header{
+    color: #b2b2b2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header h2{
+    font-size: 1.6rem;
+    font-family: cursive;
+    letter-spacing: 2px;
+}
+header .column{
+    display: flex;
+    align-items: center;
+}
+header .column span{
+    font-size: 1.2rem;
+    margin-right: 15px;
+    font-family: cursive;
+}
+.vol input{
+    accent-color: #fff;
+    outline: none;
+}
+
+.keys-checkbox input{
+    appearance: none;
+    height: 30px;
+    outline: none;
+    position: relative;
+    width: 60px;
+    background: #4b4b4b;
+    border-radius: 30px;
+}
+
+.keys-checkbox input::before{
+    content: "";
+    height: 20px;
+    width: 20px;
+    border-radius: inherit;
+    top: 50%;
+    left: 5px;
+    position: absolute;
+    background: #8c8c8c;
+    transform: translateY(-50%);
+    transition: all .3s ease;
+}
+
+.keys-checkbox input:checked::before{
+    left: 35px;
+    background: white;
+}
+
+.keys{
+    display: flex;
+    margin-top: 40px;
+    justify-content: center;
+
+}
+
+.keys .key{
+    list-style: none;
+    color: #a2a2a2;
+    text-transform: uppercase;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+}
+
+.keys .blackK{
+    width: 44px;
+    height: 140px;
+    z-index: 2;
+    margin: 0 -22px;
+    border-radius: 0 0 5px 5px;
+    background: linear-gradient(#333, #000);
+}
+
+
+.keys .blackK.active{
+    box-shadow: inset -5px -5px 10px rgba(255, 255, 255, .3);
+    background: linear-gradient(to bottom, #000 0%, #434343 100%);
+}
+
+.keys .whiteK{
+    width: 70px;
+    height: 230px;
+    border-radius: 8px;
+    border: 1px solid #000;
+    background: linear-gradient(white 96%, #eee 4%);
+}
+
+.keys .whiteK.active{
+    box-shadow: inset -5px -5px 20px rgba(0, 0, 0, .3);
+    background: linear-gradient(to bottom, white 0%, #eee 100%);
+}
+
+.keys span{
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    font-size: 1.15rem;
+    text-align: center;
+}
+
+.keys .key.hide span{
+    display: none;
+}
+
+
+@media screen and (max-width: 815px) {
+    .wrapper{
+        padding: 25px;
+    }
+    header{
+        flex-direction: column;
+    }
+    header :where(h2, .column) {
+        margin-bottom: 13px;
+    }
+    .vol input{
+        max-width: 100px;
+    }
+    .keys{
+        margin-top: 20px;
+    }
+    .keys .key:where(:nth-child(9), :nth-child(10)){
+        display: none;
+    }
+    .keys .blackK{
+        height: 100px;
+        width: 40px;
+        margin: 0 -20px;
+    }
+    .keys .whiteK{
+        height: 180px;
+        width: 60px;
+    }
+    
+}
+
+@media screen and (max-width: 615px) {
+    .keys .key:nth-child(13),
+    .keys .key:nth-child(14),
+    .keys .key:nth-child(15),
+    .keys .key:nth-child(16),
+    .keys .key:nth-child(17){
+        display: none;
+    }
+    .keys .whiteK {
+        width: 50px;
+    }
+    
+}
